@@ -1,51 +1,21 @@
-## [Submission Here](https://forms.gle/eFRiWrimKQRLTCyu5)
+# My approach
 
-> or just fork repo
+## in a nutshell
 
-# Slow Sorting Algorithm Challenge:
+> - Let S be the array that collects sorted numbers
+> - Let A be the original, unsorted array
+> - Find smallest number in the list
+> - Check if the number is already in S
+>   - if so, remove it from the A
+>   - otherwise put it into S
+> - an extra flag is used to keep duplicate numbers
 
->The coder must write a sorting algorithm that sorts a list of integers in ascending order.
+## extra slowdowns
 
->The algorithm must be intentionally designed to be as slow as possible without any manual slowdowns of the code. ex: 
-> - Adding deliberate wait times or sleep functions to the code.
-> - Adding unnecessary loops or iterations to the code.
-> - No redundant variables, operations, loops etc.
-
-> The algorithm must not use any built-in sorting functions or libraries.
-
-> The algorithm must not use any external resources or libraries.
-
-> The algorithm must be implemented in a language of the coder's choice.
-
-> The algorithm must be able to handle lists of any length (tho the given inputs are of length 50, 1k, 10k and 1m).
-
-> The algorithm must be deterministic, meaning that given the same input, it should produce the same output every time.
-
-> Time complexity analysis and an explanation of the design choices made to intentionally slow down the algorithm are welcome
-
-> Extra smiles for well-documented and readable code
-
-> The algorithm must be functional and able to correctly sort a list of integers in ascending order.
-
-> The winner will be determined based on the slowest sorting algorithm that still meets all of the above criteria.
-
-# Input format
-
-> ```cpp
-> n // size of list
-> A1 // list of numbers
-> A2
-> ...
-> An
-> ``` 
->
-> constraints: 
-> -size <= An <= size
-
-
-## Participation
-
-> - You can implement your algorithm in ```slow_sort.py``` ```slow_sort()``` function
-> - You can verify the correctness of your algorithm by running ```verifier.py```
-> - You can compare your algorithm to Bubble Sort by running ```compare.py``` (This can take long!)
-> - Solutions can be submitted [here](https://forms.gle/eFRiWrimKQRLTCyu5) (or just fork repo)
+> - when checking if a number is already in S, iteration isn't stopped when found
+> - the position of the already sorted number is checked in a separate iteration
+> - removal of sorted numbers is achieved by shifting required numbers to the left
+>   - the original size is kept, meaning empty spaces are moved from the end of the array
+>   - iteration starts at the beginning of the array and shift instructions are skipped, isntead of starting at the number that needs to be removed
+> - the first empty space in S is always found by iterating through from start
+> - by the nature of this approach, if duplicate numbers take an extra cycle to be sorted
