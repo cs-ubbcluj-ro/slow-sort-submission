@@ -19,3 +19,7 @@
 >   - iteration starts at the beginning of the array and shift instructions are skipped, isntead of starting at the number that needs to be removed
 > - the first empty space in S is always found by iterating through from start
 > - by the nature of this approach, if duplicate numbers take an extra cycle to be sorted
+
+## Complexity
+
+> ~ _O(2N * 5N) = O(10N<sup>2</sup>)_
